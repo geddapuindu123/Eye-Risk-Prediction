@@ -31,7 +31,6 @@ def graphs():
 # UPDATED API ROUTE to send dataset + latest record
 @app.route('/api/data')
 def get_data():
-    # Get latest record as dict
     latest_record = df.iloc[-1].to_dict()
     return jsonify({
         "dataset": df.to_dict(orient='records'),
@@ -81,7 +80,8 @@ def predict():
             f"<strong>High:</strong> {prediction_proba[2]:.2f}"
         )
 
-        # Insert into MySQL
+        # ✅ Fix: Safely handle connection reference
+        connection = None
         try:
             connection = mysql.connector.connect(
                 host='localhost',
@@ -95,7 +95,7 @@ def predict():
                 INSERT INTO patients
                 (name, age, eye_pressure, vision_clarity, retina_thickness, cornea_health,
                  blood_pressure, blood_sugar, cholesterol, screen_time, sleep_hours, risk_level)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                 '''
                 cursor.execute(insert_query, (
                     name, age, eye_pressure, vision_clarity, retina_thickness, cornea_health,
@@ -106,7 +106,7 @@ def predict():
         except Error as e:
             print("❌ MySQL Error:", e)
         finally:
-            if connection.is_connected():
+            if connection is not None and connection.is_connected():
                 connection.close()
 
         return render_template(
