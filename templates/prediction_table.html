@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eye Risk Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='predictiontable.css') }}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <header>
+    <h1><i class="fas fa-eye"></i> Eye Risk Prediction</h1>
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('about') }}">About</a>
+      
+      <a href="{{ url_for('graphs') }}">DataGraphs</a> 
+      <a href="{{ url_for('recent') }}">Patient Records</a> 
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2><i class="fas fa-notes-medical icon"></i> Enter Patient Details</h2>
+    <form method="POST" action="{{ url_for('predict') }}">
+
+      <div class="form-group">
+        <label for="name"><i class="fas fa-user-tag icon"></i> Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter name (optional)" />
+      </div>
+
+      <div class="form-group">
+        <label for="age"><i class="fas fa-user icon"></i> Age</label>
+        <input type="number" id="age" name="age" required min="1" max="120" />
+      </div>
+
+      <div class="form-group">
+        <label for="eye_pressure"><i class="fas fa-tachometer-alt icon"></i> Eye Pressure (mmHg)</label>
+        <input type="number" step="0.1" id="eye_pressure" name="eye_pressure" required />
+      </div>
+
+      <div class="form-group">
+        <label for="vision_clarity"><i class="fas fa-low-vision icon"></i> Vision Clarity (1–10)</label>
+        <input type="number" step="0.1" id="vision_clarity" name="vision_clarity" required min="0" max="10" />
+      </div>
+
+      <div class="form-group">
+        <label for="retina_thickness"><i class="fas fa-eye icon"></i> Retina Thickness (µm)</label>
+        <input type="number" id="retina_thickness" name="retina_thickness" required />
+      </div>
+
+      <div class="form-group">
+        <label for="cornea_health"><i class="fas fa-shield-alt icon"></i> Cornea Health (1–10)</label>
+        <input type="number" step="0.1" id="cornea_health" name="cornea_health" required min="0" max="10" />
+      </div>
+
+      <div class="form-group">
+        <label for="blood_pressure"><i class="fas fa-tint icon"></i> Blood Pressure (mmHg)</label>
+        <input type="number" id="blood_pressure" name="blood_pressure" required />
+      </div>
+
+      <div class="form-group">
+        <label for="blood_sugar"><i class="fas fa-syringe icon"></i> Blood Sugar (mg/dL)</label>
+        <input type="number" id="blood_sugar" name="blood_sugar" required />
+      </div>
+
+      <div class="form-group">
+        <label for="cholesterol"><i class="fas fa-apple-alt icon"></i> Cholesterol (mg/dL)</label>
+        <input type="number" id="cholesterol" name="cholesterol" required />
+      </div>
+
+      <div class="form-group">
+        <label for="screen_time"><i class="fas fa-laptop icon"></i> Screen Time (hrs/day)</label>
+        <input type="number" step="0.1" id="screen_time" name="screen_time" required min="0" max="24" />
+      </div>
+
+      <div class="form-group">
+        <label for="sleep_hours"><i class="fas fa-bed icon"></i> Sleep Hours (hrs/day)</label>
+        <input type="number" step="0.1" id="sleep_hours" name="sleep_hours" required min="0" max="24" />
+      </div>
+
+      <button type="submit" class="submit-btn">Predict Risk</button>
+    </form>
+
+    {% if prediction_result %}
+      <div class="result {{ result_class }}">
+        <h3>{{ prediction_result|safe }}</h3>
+        <!--<p>{{ prediction_probs|safe }}</p>-->
+          
+      </div>
+    {% endif %}
+  </div>
+
+</body>
+</html>

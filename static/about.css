@@ -1,0 +1,129 @@
+/* About page specific styles */
+.hero-about {
+  text-align: center;
+  padding: 80px 20px;
+  background: url('https://img.freepik.com/free-photo/health-still-life-with-copy-space_23-2148854031.jpg?semt=ais_hybrid&w=740') no-repeat center center/cover;
+  color: white;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+header {
+  background: linear-gradient(to right, #38b2ac, #319795);
+  padding: 20px 40px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 24px;
+  font-family: Calibri, sans-serif;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+  font-family: Calibri, sans-serif;
+}
+
+nav a:hover {
+  color: #d1fafb;
+}
+.hero-content-about {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-about h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-about p {
+  font-size: 16px;
+  margin-bottom: 25px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.section {
+  margin-top: 80px;
+  padding: 40px 20px;
+  max-width: 900px;
+  margin-left: 200px;
+  text-align: center;
+  background-color: #5ecfca;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+
+.section h3 {
+   font-size: 20px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.section p {
+  font-size: 16px;
+  line-height: 1.6;
+   color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #8ee9e6;
+  font-size: 13px;
+  margin-top: 40px;
+}
+
+/* Responsive Styling for the About Page */
+@media (max-width: 768px) {
+  .hero-about h2 {
+    font-size: 26px;
+  }
+
+  .hero-about p {
+    font-size: 14px;
+  }
+
+  .section h3 {
+    font-size: 20px;
+  }
+
+  .section p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-about h2 {
+    font-size: 22px;
+  }
+
+  .hero-about p {
+    font-size: 12px;
+  }
+
+  .section h3 {
+    font-size: 18px;
+  }
+
+  .section p {
+    font-size: 12px;
+  }
+}

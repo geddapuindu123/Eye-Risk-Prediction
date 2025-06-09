@@ -1,0 +1,51 @@
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About the Project</title>
+  <!-- For about.html -->
+<link rel="stylesheet" href="static/about.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-eye"></i>  Eye Risk Prediction</h1>
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('prediction_form') }}" class="btn">Start Prediction</a>
+    </nav>
+  </header>
+
+  <section class="hero-about">
+    <div class="hero-content-about">
+      <h2>About the Project</h2>
+      <p>The Eye Risk Prediction System is a data-driven web application designed to assess<br> 
+        an individual's risk of developing eye-related health conditions using machine learning techniques. <br>
+        By analyzing key physiological and lifestyle parameters<br>
+         such as age, eye pressure, retina thickness, vision clarity, sleep patterns, cholesterol, and<br>
+          blood sugar levels, the system provides real-time risk predictions categorized as Low, Moderate, or High. <br>
+          Built with a user-friendly interface and powered by predictive models <br>
+          like Random Forest or Logistic Regression, the platform aims to support early detection and preventive eye care. <br>
+          It empowers healthcare professionals with valuable insights and<br>
+           enables individuals to take proactive measures toward maintaining optimal eye health.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h3>How It Works</h3>
+    <p>Users input key health parameters such as age, eye pressure, retina thickness, and lifestyle metrics into the system.
+      <br>The application preprocesses the data and uses a trained machine learning model to analyze patterns and predict eye health risk levels.
+      <br>Based on the prediction (Low, Moderate, or High), it displays the risk level and visual insights through interactive graphs for better understanding and early action.</p>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Eye Risk Prediction System.</p>
+    </div>
+  </footer>
+</body>
+</html>

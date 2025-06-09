@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eye Health Risk Dashboard</title>
+
+  <!-- Chart.js and PapaParse -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <header>
+     <h2><i class="fas fa-eye"></i> Eye Risk Prediction</h2>
+      <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('recent') }}">Patient Records</a> 
+    </nav>
+  </header>
+ 
+
+  <!-- Summary Cards -->
+  <section class="cards" id="summary-cards"></section>
+
+  <!-- Graphs -->
+  <section class="charts-grid">
+    <div class="chart-box chart-retina">
+      <h3>Retina Thickness vs Age</h3>
+      <canvas id="retinaVsAgeChart"></canvas>
+    </div>
+    <div class="chart-box chart-eye-pressure">
+      <h3>Eye Pressure vs Age</h3>
+      <canvas id="eyePressureChart"></canvas>
+    </div>
+    <div class="chart-box chart-vision">
+      <h3>Vision Clarity vs Age</h3>
+      <canvas id="visionClarityChart"></canvas>
+    </div>
+    <div class="chart-box chart-bp">
+      <h3>Blood Pressure vs Age</h3>
+      <canvas id="bloodPressureChart"></canvas>
+    </div>
+    <div class="chart-box chart-sugar">
+      <h3>Blood Sugar vs Age</h3>
+      <canvas id="bloodSugarChart"></canvas>
+    </div>
+    <div class="chart-box chart-cornea">
+      <h3>Cornea Health vs Age</h3>
+      <canvas id="corneaVsAgeChart"></canvas>
+    </div>
+    <div class="chart-box chart-sleep">
+      <h3>Sleep Hours vs Risk</h3>
+      <canvas id="sleepVsRiskChart"></canvas>
+    </div>
+    <div class="chart-box chart-chol">
+      <h3>Cholesterol vs Risk</h3>
+      <canvas id="cholesterolVsRiskChart"></canvas>
+    </div>
+    <div class="chart-box chart-screen">
+      <h3>Screen Time vs Risk</h3>
+      <canvas id="screenTimeChart"></canvas>
+    </div>
+    <div class="chart-box chart-bar">
+      <h3>Risk Level Distribution (Bar)</h3>
+      <canvas id="riskLevelBarChart"></canvas>
+    </div>
+    <div class="chart-box chart-pie">
+      <h3>Risk Level Distribution (Pie)</h3>
+      <canvas id="riskLevelPieChart"></canvas>
+    </div>
+    <div class="chart-box chart-sugar-dist">
+      <h3>Blood Sugar Distribution</h3>
+      <canvas id="bloodSugarDistChart"></canvas>
+    </div>
+  </section>
+
+  <!-- Script -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

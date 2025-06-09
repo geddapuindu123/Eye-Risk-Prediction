@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Patient Risk Prediction</title>
+
+  <!-- Correct way to include static CSS with Flask -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-eye"></i> Eye Risk Prediction</h1>
+    <nav>
+      <a href="{{ url_for('about') }}">About</a>
+      <a href="{{ url_for('prediction_form') }}" class="btn">Start Prediction</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Eye Health Risk Prediction</h2>
+      <p>Empowering patients and doctors with early risk prediction <br /> using Machine learning and data-driven insights.</p><br />
+      <p>Take charge of your eye health with our intelligent risk prediction platform, designed to empower both patients and eye care professionals.
+      </p>
+      <p>Using advanced machine learning models, we analyze key indicators such as age, eye pressure, retina thickness, vision clarity, and more to accurately assess the risk of developing eye conditions.</p>
+
+      <!-- Make sure this uses url_for -->
+      <a href="{{ url_for('prediction_form') }}" class="get-started-btn">Get Started</a>
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <div class="features">
+      <div class="feature">
+        <i class="fas fa-user-check"></i>
+        <h4>Easy Input</h4>
+        <p>Users can fill out basic health details with a simple form.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-brain"></i>
+        <h4>AI-Based Prediction</h4>
+        <p>Machine learning models analyze inputs to determine risk level.</p>
+      </div>
+      <div class="feature">
+        <i class="fas fa-briefcase-medical"></i>
+        <h4>Support for Early Action</h4>
+        <p>Helps in taking early medical action based on risk levels.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Eye Risk Prediction System.</p>
+    </div>
+  </footer>
+</body>
+</html>
